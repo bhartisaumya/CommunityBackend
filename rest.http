@@ -1,0 +1,93 @@
+### Add Role
+
+POST http://localhost:3000/v1/role
+Content-Type: application/json
+
+{
+    "name" : "1"
+}
+
+
+### GET Role
+
+GET http://localhost:3000/v1/role
+
+
+### Signup routes
+
+POST http://localhost:3000/v1/auth/signup
+Content-Type: application/json
+
+{
+    "name" : "1",
+    "email" : "1@surya.in",
+    "password" : "king"
+}
+
+### Signin routes
+
+POST http://localhost:3000/v1/auth/signin
+Content-Type: application/json
+
+{
+    "email" : "2@surya.in",
+    "password" : "king"
+}
+
+
+### Me routes
+
+GET http://localhost:3000/v1/auth/me
+Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0Mzk0OTMsImV4cCI6MTY4MTQ1NzQ5MywiYXVkIjoiNjQzOGJhNWNmOTYwYjY5MmI4NGM3ZTE1IiwiaXNzIjoiU3VyeWEifQ.pjmrYYANJ0SpIUo-PRRDBgMZ3959R5dR9jA6gtya9oA
+
+
+### Add Community
+
+POST http://localhost:3000/v1/community
+Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0NDUyOTUsImV4cCI6MTY4MTQ2MzI5NSwiYXVkIjoiNjQzOGQxOTkyMmU4ZDJkZDUyMmVhNWRlIiwiaXNzIjoiU3VyeWEifQ.EUp_9GBV2JIx-mLetbHlsxAiiNkJBblYfmGxSRf6VzI
+Content-Type: application/json
+
+{
+    "name" : "2"
+}
+
+
+### All Community
+
+GET  http://localhost:3000/v1/community
+Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0NDk3MDEsImV4cCI6MTY4MTQ2NzcwMSwiYXVkIjoiNjQzOGQxYTIyMmU4ZDJkZDUyMmVhNWUxIiwiaXNzIjoiU3VyeWEifQ.Hh8ohy39WBb_7QDl_s2XLpmQqbi_Zte6nSuuYO5wo2M
+
+
+### All owned Community
+
+GET http://localhost:3000/v1/community/me/owner
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0Mzk4MzEsImV4cCI6MTY4MTQ1NzgzMSwiYXVkIjoiNjQzOGJhNWNmOTYwYjY5MmI4NGM3ZTE1IiwiaXNzIjoiU3VyeWEifQ.548hw8dA86KKUn-IAMNjEhA-OECHrLRLC52FqON8nEg
+
+
+### All joined Community
+
+GET http://localhost:3000/v1/community/me/member
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0NDc3OTQsImV4cCI6MTY4MTQ2NTc5NCwiYXVkIjoiNjQzOGQxYTIyMmU4ZDJkZDUyMmVhNWUxIiwiaXNzIjoiU3VyeWEifQ.LWLJ4-vXJiehDLik0EOBSB3ASTxl4r8Uk_OoyKNuM5A
+
+
+### Add Member
+
+POST http://localhost:3000/v1/member
+Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0NDUyOTUsImV4cCI6MTY4MTQ2MzI5NSwiYXVkIjoiNjQzOGQxOTkyMmU4ZDJkZDUyMmVhNWRlIiwiaXNzIjoiU3VyeWEifQ.EUp_9GBV2JIx-mLetbHlsxAiiNkJBblYfmGxSRf6VzI
+Content-Type: application/json
+
+{
+    "communityid" : "6438d1c322e8d2dd522ea5e5",
+    "userid" : "6438d1a222e8d2dd522ea5e1",
+    "roleid" : "6438357e97be02c6594c9e67"
+}
+
+
+### Delete Member by id
+DELETE http://localhost:3000/v1/member/me/member?id=64384072a552382c33eef217
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0MzgzMDIsImV4cCI6MTY4MTQ1NjMwMiwiYXVkIjoiNjQzODM1YTk5N2JlMDJjNjU5NGM5ZTZiIiwiaXNzIjoiU3VyeWEifQ.49nwD7svxiRkjcgxZtCCdYxNpV_yLAq5DqwNfjCBxqs
+
+
+### Display Members of the community
+GET http://localhost:3000/v1/community/?id=6438356197be02c6594c9e64/members
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0MzgzMDIsImV4cCI6MTY4MTQ1NjMwMiwiYXVkIjoiNjQzODM1YTk5N2JlMDJjNjU5NGM5ZTZiIiwiaXNzIjoiU3VyeWEifQ.49nwD7svxiRkjcgxZtCCdYxNpV_yLAq5DqwNfjCBxqs
