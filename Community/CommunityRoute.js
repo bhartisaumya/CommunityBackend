@@ -6,14 +6,39 @@ const {communitySchema} = require('../Helper/Validation_Schema')
 const {verifyAccessToken} = require('../Helper/jwt_access_tokens')
 const moment = require('moment');
 const Member = require('../Models/Member.model');
+const User = require('../Models/User.model')
 
 
 // -> v1/community/
-// Returns all created community
+// Returns all created community if id == null or returns the members of the community
 router.get('/' , verifyAccessToken , async (req , res , next) => {
-    console.log('second')
-    const allCommunity = await Community.find({});
-    res.send(allCommunity);
+    const paramerter = req.query.id
+    if(paramerter){
+        const splitString = paramerter.split('/')
+        try {
+            const commid = splitString[0]
+            const result = await Member.find({communityid : commid})
+            const data = []
+    
+            for(let i = 0 ; i < result.length ; i++){
+                try {
+                    const comm = await User.findById(result[i].userid);
+                    data.push(comm)             
+                } catch (error) {
+                    next(error)                
+                }
+            }
+
+            res.send(data)
+            
+        } catch (error) {
+            next(error)
+        }
+    }
+    else{
+        const allCommunity = await Community.find({});
+        res.send(allCommunity);
+    } 
 })
 
 

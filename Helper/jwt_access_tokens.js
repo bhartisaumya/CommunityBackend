@@ -15,7 +15,6 @@ module.exports = {
             JWT.sign(payload , secret , option , (err , token) => {
                 if(err){
                     console.log(err.message)
-                    // return reject(err)
                     return reject(createError.InternalServerError())
                 }
                 resolve(token)
@@ -37,34 +36,4 @@ module.exports = {
             next();
         })
     },
-    signRefreshToken : (userId) => {
-        return new Promise((resolve , reject) => {
-            const payload = {}
-            const secret = process.env.REFRESH_TOKEN_KEY
-            const option = {
-                expiresIn : '1y',
-                issuer : 'Surya',
-                audience : userId,
-            }
-            JWT.sign(payload , secret , option , (err , token) => {
-                if(err){
-                    console.log(err.message)
-                    return reject(createError.InternalServerError())
-                }
-                resolve(token)
-            })
-        })
-    },
-    verifyRefreshToken : (refreshToken) => {
-        return new Promise((resolve , reject) => {
-            JWT.verify(refreshToken , process.env.REFRESH_TOKEN_KEY , (err , payload) => {
-                if(err) return reject(createError.Unauthorized())
-
-                const userId = payload.aud
-                resolve(userId)
-                req.payload = payload
-                next()
-            })
-        }) 
-    } 
 }
