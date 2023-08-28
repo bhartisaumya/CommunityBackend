@@ -1,0 +1,16 @@
+08/07:
+
+Learned error handling, difference between null and empty, schema validation, etc
+
+09/07:
+
+Implemented password hashing, corrected error handling, bit about middleware, etc
+
+10/07:
+
+Learned about JWT
+HMAC-256 -> Hashed Message Authentication Code
+
+22/08:
+
+Implemented accessToken

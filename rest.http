@@ -1,0 +1,42 @@
+###HomePage
+GET http://localhost:3000/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTI5NTUwMzksImV4cCI6MTY5Mjk1ODYzOSwiYXVkIjoiNjRlNWVhOWFhMWIyY2RiMThiYmM0NDRjIiwiaXNzIjoiYmhhcnRpa2luZy5jb20ifQ.P34ptwNJYmLo5uG88Ni4mgBRGts7B-KgMdcdZPAdwYU
+
+
+### Register
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "firstName": "sklsnf",
+    "lastName": "bharti",
+    "email": "thljkvxfdgdffsdcvik@gmail.com",
+    "password": "sjkkdnfkjds"
+}
+
+### Login
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "thljkvxfdgdffsdcvik@gmail.com",
+    "password": "sjkkdnfkjds"
+}
+
+### Generate new access and refresh token using existing refresh token
+POST http://localhost:3000/auth/refreshToken-access
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTMxNTkyNzIsImV4cCI6MTcyNDcxNjg3MiwiYXVkIjoiNjRlNWVhOWFhMWIyY2RiMThiYmM0NDRjIiwiaXNzIjoiYmhhcnRpa2luZy5jb20ifQ.KMkEaZmJY3EfZlWL-ylph3Bh4fSPp3GxwLzzNiWSXjs"
+}
+
+### Create Community
+POST http://localhost:3000/community/createCommunity
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTMyMDUzMDIsImV4cCI6MTY5MzIwODkwMiwiYXVkIjoiNjRlNWVhOWFhMWIyY2RiMThiYmM0NDRjIiwiaXNzIjoiYmhhcnRpa2luZy5jb20ifQ.aMlDPAEsHuWpZPap0JQ0Vy4XxVmgdAG6bvw25DH1RGU
+Content-Type: application/json
+
+{
+    "name" : "Nature Lover"
+}
