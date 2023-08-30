@@ -2,12 +2,11 @@ const mongoose = require('mongoose')
 // mongodb+srv://surya:<password>@cluster0.u0iusxy.mongodb.net/?retryWrites=true&w=majority
 //surya
 // vSiMXGiddMXKC03l
-//
 mongoose
 .connect(process.env.MONGODB_URI, {
     dbName : 'auth_details',
     // user : process.env.USERNAME,
-    //pass : process.env.PASSWORD,
+    // pass : process.env.PASSWORD,
     useNewUrlParser : true,
     useUnifiedTopology : true,
     //useFindAndModify : false,
